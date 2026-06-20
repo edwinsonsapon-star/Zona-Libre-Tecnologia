@@ -6,7 +6,7 @@ formulario.addEventListener("submit",(e) => {
     const correo = 
     document.getElementById("correo").value;
 
-    const pasword = 
+    const password = 
     document.getElementById("password").value;
     
     let usuarios = JSON.parse(
@@ -17,7 +17,7 @@ formulario.addEventListener("submit",(e) => {
         usuario => 
         usuario.correo === correo
         &&
-        usuario.pasword === pasword
+        usuario.pasword === password
     );
 
     if(!usuario){
@@ -26,6 +26,12 @@ formulario.addEventListener("submit",(e) => {
         );
         return;
     }
+
+    localStorage.setItem(
+        "usuarioactivo",
+        JSON.stringify(usuario)
+    );
+
     alert(
         `bienvenido ${usuario.nombre} `
     );
