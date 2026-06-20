@@ -17,7 +17,7 @@ formulario.addEventListener("submit",(e) => {
         usuario => 
         usuario.correo === correo
         &&
-        usuario.pasword === password
+        usuario.password === password
     );
 
     if(!usuario){
@@ -28,7 +28,7 @@ formulario.addEventListener("submit",(e) => {
     }
 
     localStorage.setItem(
-        "usuarioactivo",
+        "usuarioActivo",
         JSON.stringify(usuario)
     );
 

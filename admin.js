@@ -167,16 +167,21 @@ if(ofertaActiva && precioOfertaInput === ""){
 
 function eliminarProducto(index){
 
+    if(!confirm("¿Está seguro de eliminar este producto?")){
+        return;
+    }
+
     productosGuardados.splice(index, 1);
 
     localStorage.setItem(
-
         "productos",
         JSON.stringify(productosGuardados)
     );
 
     mostrarProductosAdmin();
     actualizarDashboard();
+
+    mostrarNotificacion("✅ Producto eliminado correctamente");
 
 }
 

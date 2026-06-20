@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Panel Admin</title>
+    <script>
+        if(!localStorage.getItem("usuarioActivo")){
+            window.location.href = "login.html";
+        }
+    </script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>

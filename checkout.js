@@ -12,7 +12,11 @@ let total = 0;
 
 carrito.forEach( producto => {
 
-    total += producto.precio * producto.cantidad;
+    const precioProducto = producto.precioOferta != null
+        ? producto.precioOferta
+        : producto.precio;
+
+    total += precioProducto * producto.cantidad;
 
     checkoutProductos.innerHTML +=`
     
@@ -27,7 +31,7 @@ carrito.forEach( producto => {
         </p>
 
         <p>
-            Q${producto.precio*producto.cantidad}
+            Q${precioProducto*producto.cantidad}
         </p>
         
         
@@ -45,6 +49,11 @@ checkoutTotal.textContent = `Total: Q${total}`;
 formulario.addEventListener("submit",(e) =>{
 
     e.preventDefault();
+
+    if(carrito.length === 0){
+        alert("El carrito está vacío");
+        return;
+    }
 
     let productos = JSON.parse(
         

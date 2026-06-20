@@ -69,18 +69,6 @@ if(!producto){
 
 
 // =========================
-// DEBUG
-// =========================
-
-console.log("ID URL:", idProducto);
-
-console.log("Productos:", productosGuardados);
-
-console.log("Producto encontrado:", producto);
-
-
-
-// =========================
 // MOSTRAR PRODUCTO
 // =========================
 
@@ -127,9 +115,10 @@ contenedorDetalle.innerHTML = `
 
             <button
             class="btn-comprar"
-            id="btn-comprar-producto">
+            id="btn-comprar-producto"
+            ${producto.stock === 0 ? "disabled" : ""}>
 
-                 🛒 Comprar
+                 ${producto.stock === 0 ? "Agotado" : "🛒 Comprar"}
 
             </button>
 

@@ -85,7 +85,7 @@ if(usuarioActivo && usuarioMenu){
 
 <div class="dropdown">
 
-    <button class="btn-usuario">
+    <button class="btn-login btn-usuario">
 
         👤 ${usuarioActivo.nombre} ▼
 
@@ -149,7 +149,7 @@ carrito = carrito.map(producto => ({
     cantidad: producto.cantidad || 1
 }));
 
-if(carritoTexto){
+if(carritoTexto && carritoPanel && overlay){
 
     carritoTexto.addEventListener("click",() => {
          
@@ -613,6 +613,8 @@ function actualizarCarrito(){
 
     guardarCarrito();
 
+    actualizarContadorCarrito();
+
     if(!listaCarrito || !totalCarrito){
 
         return;
@@ -625,7 +627,11 @@ function actualizarCarrito(){
 
     carrito.forEach((producto,index)=>{
 
-        total += producto.precio * producto.cantidad;
+        const precioProducto = producto.precioOferta != null
+            ? producto.precioOferta
+            : producto.precio;
+
+        total += precioProducto * producto.cantidad;
 
         html += `
 
@@ -645,7 +651,7 @@ function actualizarCarrito(){
 
             <p>
 
-                ${CONFIG.simboloMoneda}${producto.precio * producto.cantidad}
+                ${CONFIG.simboloMoneda}${precioProducto * producto.cantidad}
 
             </p>
 
@@ -662,8 +668,6 @@ function actualizarCarrito(){
     });
 
     listaCarrito.innerHTML = html;
-
-    actualizarContadorCarrito();
 
     totalCarrito.textContent =
 
