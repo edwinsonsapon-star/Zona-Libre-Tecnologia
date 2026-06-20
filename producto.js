@@ -152,6 +152,8 @@ botonComprar.addEventListener("click", () => {
 
     agregarAlCarrito(producto.id);
 
+    actualizarCarrito();
+
 });
 
 
@@ -178,7 +180,19 @@ const relacionados = productosGuardados.filter(
 
 relacionados.forEach(item => {
 
-    productosRelacionados.innerHTML += `
+    productosRelacionados.innerHTML = "";
+
+const relacionados = productosGuardados.filter(
+
+    item => item.id !== producto.id
+
+);
+
+let html = "";
+
+relacionados.forEach(item => {
+
+    html += `
 
     <div class="card" onclick="irProducto(${item.id})">
 
@@ -186,15 +200,11 @@ relacionados.forEach(item => {
 
         ${item.oferta ? '<span class="badge oferta">OFERTA</span>' : ''}
 
-
-
         <img src="${item.imagen}" alt="${item.nombre}">
 
         <h3>${item.nombre}</h3>
 
         <p>${item.descripcion}</p>
-
-
 
         ${
             item.oferta && item.precioOferta
@@ -203,13 +213,13 @@ relacionados.forEach(item => {
 
                     <span class="precio-original">
 
-                        Q${item.precio}
+                        ${CONFIG.simboloMoneda}${item.precio}
 
                     </span>
 
                     <span class="precio-oferta">
 
-                        Q${item.precioOferta}
+                        ${CONFIG.simboloMoneda}${item.precioOferta}
 
                     </span>
 
@@ -218,13 +228,11 @@ relacionados.forEach(item => {
             : `
                 <span class="precio">
 
-                    Q${item.precio}
+                    ${CONFIG.simboloMoneda}${item.precio}
 
                 </span>
             `
         }
-
-
 
         <button>
 
@@ -237,3 +245,8 @@ relacionados.forEach(item => {
     `;
 
 });
+
+productosRelacionados.innerHTML = html;
+});
+
+actualizarContadorCarrito();

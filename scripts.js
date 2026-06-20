@@ -497,45 +497,87 @@ function mostrarProductos(listaProductos = productosGuardados){
 //=============================================================
 
 function agregarAlCarrito(id){
+
+    // Sincronizar siempre con localStorage
+    carrito = JSON.parse(
+
+        localStorage.getItem("carrito")
+
+    ) || [];
+
     const productoEncontrado = productosGuardados.find(
+
         producto => producto.id === id
-    );
-    const productoEnCarrito = carrito.find(
-        producto => producto.id === id
+
     );
 
     if(!productoEncontrado){
+
         mostrarNotificacion(
-             "❌ Producto no encontrado"
+
+            "❌ Producto no encontrado"
+
         );
+
         return;
+
     }
 
+    const productoEnCarrito = carrito.find(
+
+        producto => producto.id === id
+
+    );
+
     if(productoEnCarrito){
+
         if(productoEnCarrito.cantidad >= productoEncontrado.stock){
+
             mostrarNotificacion(
+
                 "❌ No hay más unidades disponibles"
+
             );
+
             return;
+
         }
+
         productoEnCarrito.cantidad++;
+
     }else{
+
         if(productoEncontrado.stock <= 0){
+
             mostrarNotificacion(
+
                 "❌ Producto agotado"
+
             );
+
             return;
+
         }
+
         carrito.push({
+
             ...productoEncontrado,
-            cantidad: 1,
+
+            cantidad: 1
+
         });
+
     }
 
     actualizarCarrito();
-    mostrarNotificacion("✔ Producto agregado al carrito")
 
-};
+    mostrarNotificacion(
+
+        "✔ Producto agregado al carrito"
+
+    );
+
+}
 
 function actualizarContadorCarrito(){
 
@@ -545,20 +587,25 @@ function actualizarContadorCarrito(){
 
     }
 
-    const totalItems = carrito.reduce(
+    const carritoActual = JSON.parse(
 
-        (total,item)=> total + item.cantidad,
+        localStorage.getItem("carrito")
+
+    ) || [];
+
+    const totalItems = carritoActual.reduce(
+
+        (total,item) => total + item.cantidad,
 
         0
 
     );
 
-    carritoTexto.textContent =
+    carritoTexto.innerHTML =
 
-        `${CONFIG.simboloCarrito} Carrito (${totalItems})`;
+        `${CONFIG.simboloCarrito} Carrito <strong>(${totalItems})</strong>`;
 
 }
-
 
 
 
