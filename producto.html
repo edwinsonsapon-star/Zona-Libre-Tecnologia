@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>producto</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h2>Webstore</h2>
+            <span 
+            id="carrito"
+            onclick="window.location.href= 'checkout.html'">
+                🛒 Carrito (0)
+            </span>
+        </div>
+    </header>
+    <main class="detalle-producto">
+
+        <div class="container">
+
+            <button class="btn-volver" onclick="window.location.href = 'index.html'">
+                ← Volver al inicio
+            </button>
+
+        </div>
+
+
+
+        <div class="container" id="detalle-producto">
+        
+        </div>
+
+        <section class="productos-relacionados">
+            <h2>Productos Relacionados</h2>
+            <div class="productos-grid" id="productos-relacionados">
+
+            </div>
+        </section>
+    </main>
+        
+    <script src="productos.js"></script>
+    <script src="scripts.js"></script>
+    <script src="producto.js"></script>
+    
+</body>
+</html>

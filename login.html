@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Iniciar Sesión</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<header>
+
+    <div class="container">
+
+        <h2>Webstore</h2>
+
+    </div>
+
+</header>
+
+<main class="login-page">
+
+    <div class="login-card">
+
+        <button
+        class="btn-volver"
+        onclick="window.location.href='index.html'">
+
+            ← Volver al inicio
+
+        </button>
+
+        <h1>Iniciar Sesión</h1>
+
+        <form id="form-login">
+
+            <input
+            id="correo"
+            type="email"
+            placeholder="Correo electrónico"
+            required>
+
+            <input
+            id="password"
+            type="password"
+            placeholder="Contraseña"
+            required>
+
+            <button type="submit">
+
+                Iniciar Sesión
+
+            </button>
+
+        </form>
+
+        <p class="crear-cuenta">
+
+            ¿No tienes cuenta?
+
+            <a href="registro.html">
+                Crear cuenta
+            </a>
+
+        </p>
+
+    </div>
+
+</main>
+    <script src="login.js"></script>
+</body>
+</html>

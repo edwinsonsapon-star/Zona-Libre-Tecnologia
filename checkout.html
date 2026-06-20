@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="checkout">
+
+        <div class="container">
+
+            <button
+            class="btn-volver"
+            onclick="window.location.href='index.html'">
+            
+             ← Seguir comprando
+            
+            </button>
+
+        </div>
+
+        <div class="container">
+
+            <h1>Finalizar Compra</h1>
+            <div class="checkout-grid">
+
+                <section class="checkout-resumen">
+                    <h2>Resumen del pedido</h2>
+                    <div id="checkout-productos">
+
+                    </div><br>
+                    <h3 id="checkout-total">
+                        Total: Q0
+                    </h3>
+                </section>
+
+                <!--Inicio de formulario-->
+                <section class="checkout-formulario">
+                    <h2>Datos de envío</h2><br>
+
+                    <form id="form-checkout">
+
+                        <input 
+                        type="text"
+                        placeholder="Nombre completo"
+                        required                        
+                        >
+
+                        <input 
+                        type="email"
+                        placeholder="Correo electronico"
+                        required
+                        >
+                        
+                        <input 
+                        type="tel"
+                        placeholder="Telefono"
+                        required
+                        >
+
+                        <textarea 
+                        placeholder="Direccion"
+                        required></textarea>
+
+                        <button type="submit">
+
+                            Finalizar Compra
+
+                        </button>
+
+                    </form>
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="checkout.js"></script>
+
+</body>
+</html>

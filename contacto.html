@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Webstore</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h2>Webstore</h2>
+    </div>
+</header>
+
+<main>
+
+    <!-- Banner -->
+
+    <section class="banner-contacto">
+
+        <div class="container">
+
+            <h1>Contáctanos</h1>
+
+            <p>
+                Estamos listos para ayudarte
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Botón volver -->
+
+    <section class="contacto-volver">
+
+        <button
+        class="btn-volver"
+        onclick="window.location.href='index.html'">
+
+            ← Volver al inicio
+
+        </button>
+
+    </section>
+
+    <!-- Contenido principal -->
+
+    <section class="contacto-contenedor">
+
+        <!-- Información -->
+
+        <div class="contacto-info">
+
+            <div class="info-card">
+
+                <h3>📧 Correo</h3>
+
+                <p>correo@webstore.com</p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>📞 Teléfono</h3>
+
+                <p>+502 1234-5678</p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>📍 Dirección</h3>
+
+                <p>San Cristóbal Totonicapán, Guatemala</p>
+
+            </div>
+
+            <div class="info-card">
+
+                 <h3>🌎 Redes Sociales</h3>
+
+                    <a href="#" class="red-social">
+                        Instagram
+                    </a><br>
+
+                    <a href="#" class="red-social">
+                        Facebook
+                    </a><br>
+
+                    <a href="#" class="red-social">
+                        TikTok
+                    </a><br>
+
+                    <a href="#" class="red-social">
+                        WhatsApp
+                    </a><br>
+
+            </div>
+
+        </div>
+
+        <!-- Formulario -->
+
+        <form class="contacto-form" id="form-contacto">
+
+            <input
+                type="text"
+                placeholder="Nombre completo"
+                required
+            >
+
+            <input
+                type="email"
+                placeholder="Correo electrónico"
+                required
+            >
+
+            <textarea
+                rows="7"
+                placeholder="Escribe tu mensaje"
+                required
+            ></textarea>
+
+            <button type="submit">
+
+                Enviar mensaje
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- Mapa -->
+
+    <section class="mapa-contacto">
+
+        <iframe
+        src="https://maps.google.com/maps?q=Guatemala&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        loading="lazy">
+        </iframe>
+
+    </section>
+
+</main>
+
+<script>
+
+document.getElementById("form-contacto")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert("✅ Mensaje enviado correctamente");
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear Cuenta | Webstore</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container">
+
+         <div>
+            <img src="imagenes/Logo.jpeg" alt="Logo" width="50px" height="50px">
+        </div>
+
+    </div>
+
+</header>
+
+<main class="login-page">
+
+    <div class="login-card">
+
+        <button
+        class="btn-volver"
+        onclick="window.location.href='index.html'">
+
+            ← Volver al inicio
+
+        </button>
+
+        <h1>Crear Cuenta</h1>
+
+        <p class="login-subtitulo">
+
+            Completa el formulario para registrarte.
+
+        </p><br>
+
+        <form id="form-registro">
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Nombre completo"
+                required
+            >
+
+            <input
+                type="email"
+                id="correo"
+                placeholder="Correo electrónico"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Contraseña"
+                required
+            >
+
+            <input
+                type="password"
+                id="confirmar"
+                placeholder="Confirmar contraseña"
+                required
+            >
+
+            <button
+                type="submit"
+                class="btn-login">
+
+                Crear Cuenta
+
+            </button>
+
+        </form>
+
+        <p class="login-link">
+            ¿Ya tienes una cuenta?
+
+            <a href="login.html">
+                Iniciar Sesión
+            </a>
+        </p>
+    </div>
+
+</main>
+
+<footer class="footer">
+
+    <div>
+
+        <h3>Webstore</h3>
+
+        <p>© 2026 Todos los derechos reservados.</p>
+
+    </div>
+
+</footer>
+
+<script src="registro.js"></script>
+
+</body>
+
+</html>
+
