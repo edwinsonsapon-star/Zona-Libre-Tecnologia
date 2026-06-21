@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Panel Admin</title>
+    <title>ADMIN - ZONA LIBRE</title>
     <script>
         if(!localStorage.getItem("usuarioActivo")){
             window.location.href = "login.html";
@@ -60,6 +60,12 @@
                 type="text"
                 id="nombre"
                 placeholder="Nombre producto"
+                required>
+
+                <input
+                type="text"
+                id="categoria"
+                placeholder="Categoría"
                 required>
 
                 <input 

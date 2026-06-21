@@ -43,11 +43,12 @@ const productos = [
         nombre: "Mochila Totto",
         categoria:"Mochilas",
         tamano: "Grande",
-        descripcion: "Ideal para EStudi",
+        descripcion: "Ideal para Estudiantes",
         stock: 15,
         precio: 1500,
         imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoAE1gbKNaHQK_ILnG1nzgDsZhl6OFu5VuJg&s" 
-    }
+    },
+    
 ];
 
 if(!localStorage.getItem("productos")){

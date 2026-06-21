@@ -9,7 +9,7 @@ const cerrarCarritoBtn = document.getElementById("cerrar-carrito");
 const buscador = document.getElementById("buscador");
 const filtroCategoria = document.getElementById("filtro-categoria");
 const filtroPrecio = document.getElementById("filtro-precio");
-const filtroTamano = document.getElementById("filtro-tamano");
+
 const btnOfertas = document.getElementById("btn-ofertas");
 const btnInicio = document.getElementById("btn-inicio");
 //=======================================================
@@ -135,13 +135,76 @@ function cerrarSesion(){
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-let productosGuardados = JSON.parse(
-    localStorage.getItem("productos")
-);
+let productosGuardados = [];
 
-if(!productosGuardados){
-    productosGuardados = productos;
+function cargarProductosGuardados(){
+
+    productosGuardados = JSON.parse(
+        localStorage.getItem("productos")
+    ) || productos;
+
 }
+
+function actualizarFiltroCategorias(){
+
+    if(!filtroCategoria){
+        return;
+    }
+
+    const categoriaSeleccionada = filtroCategoria.value || "todos";
+
+    while(filtroCategoria.options.length > 1){
+        filtroCategoria.remove(1);
+    }
+
+    const categorias = [];
+    const categoriasAgregadas = new Set();
+
+    productosGuardados.forEach(producto => {
+
+        if(!producto.categoria){
+            return;
+        }
+
+        const categoria = String(producto.categoria).trim();
+        const claveCategoria = categoria.toLowerCase();
+
+        if(categoria && !categoriasAgregadas.has(claveCategoria)){
+
+            categoriasAgregadas.add(claveCategoria);
+            categorias.push(categoria);
+
+        }
+
+    });
+
+    categorias.forEach(categoria => {
+
+        const opcion = document.createElement("option");
+
+        opcion.value = categoria;
+        opcion.textContent = categoria;
+
+        filtroCategoria.appendChild(opcion);
+
+    });
+
+    filtroCategoria.value = categorias.includes(categoriaSeleccionada)
+        ? categoriaSeleccionada
+        : "todos";
+
+}
+
+function sincronizarProductosGuardados(){
+
+    cargarProductosGuardados();
+    actualizarFiltroCategorias();
+    filtrarProductos();
+
+}
+
+cargarProductosGuardados();
+actualizarFiltroCategorias();
 
 
 carrito = carrito.map(producto => ({
@@ -185,10 +248,23 @@ if(filtroPrecio){
     filtroPrecio.addEventListener("change",filtrarProductos);
 }
 
-if(filtroTamano){
-    filtroTamano.addEventListener("change",filtrarProductos);
 
-}
+
+window.addEventListener("storage",(e) => {
+
+    if(e.key === "productos"){
+
+        sincronizarProductosGuardados();
+
+    }
+
+});
+
+window.addEventListener("pageshow",() => {
+
+    sincronizarProductosGuardados();
+
+});
 
 //aqui comienzan los enlaces del navegador
 
@@ -223,11 +299,7 @@ function resetFiltros(){
 
     }
 
-    if(filtroTamano){
-
-        filtroTamano.value = "todos";
-
-    }
+  
 
 }
 
@@ -258,20 +330,13 @@ function filtrarProductos(){
     ? buscador.value.toLowerCase()
     : "";
 
-
     const categoriaSeleccionada = filtroCategoria
     ? filtroCategoria.value
     : "todos";
 
-
     const precioSeleccionado = filtroPrecio
     ? filtroPrecio.value
     : "todos";
-
-    const tamanoSeleccionado = filtroTamano
-    ? filtroTamano.value
-    : "todos";
-
 
     const productosFiltrados = productosGuardados.filter(producto => {
 
@@ -279,44 +344,30 @@ function filtrarProductos(){
         .toLowerCase()
         .includes(textoBusqueda);
 
-
         const coincidenciaCategoria = categoriaSeleccionada === "todos"
         || producto.categoria === categoriaSeleccionada;
 
-        const coincidenciaTamano = tamanoSeleccionado === "todos"
-        || producto.tamano === tamanoSeleccionado;
-
         let coincidenciaPrecio = true;
 
-
         if(precioSeleccionado === "menor100"){
-
             coincidenciaPrecio = producto.precio < 100;
-
         }
-
 
         if(precioSeleccionado === "100-500"){
-
             coincidenciaPrecio = producto.precio >= 100
             && producto.precio <= 500;
-
         }
-
 
         if(precioSeleccionado === "mayor500"){
-
             coincidenciaPrecio = producto.precio > 500;
-
         }
-
 
         return coincidenciaBusqueda
         && coincidenciaCategoria
-        && coincidenciaPrecio
-        && coincidenciaTamano;
+        && coincidenciaPrecio;
 
     });
+
     mostrarProductos(productosFiltrados);
 
 }

@@ -9,13 +9,14 @@ html,body{
 }
 
 body{
-    background: color #f5f5f5;
+    background:#f5f5f5;
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
 }
 
 .main{
+    
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -23,9 +24,9 @@ body{
 
 
 .container{
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 
@@ -35,43 +36,69 @@ header{
 
     position: sticky;
 
-    top: 0;
-
+    top:0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 
 }
 
 header .container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:15px 40px;
+
 }
 
-
 nav{
-    display: flex;
-    gap: 20px;
+
+    
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
 }
 
 nav a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-weight:600;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:#ff5a00;
+
 }
 
 
 .user-actions{
+    flex: 1;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 
 .search-bar{
     margin: 20px 0;
+    margin-bottom: 10px;
 }
 
 .search-bar .container{
@@ -80,8 +107,8 @@ nav a{
 }
 
 .search-bar input{
-    width: 100%;
-    max-width: 500px;
+    width: 600px;
+    max-width: 90%;
     padding: 10px;
     border-radius: 20px;
     border: none;
@@ -89,18 +116,24 @@ nav a{
 }
 
 
-.banner{
-    background-image: url("https://images.unsplash.com/photo-1527905804285-2f67b86e3bf6?q=80&w=1469&auto=format&fit=crop");
-    background-size: cover;
-    background-position: center;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    color: white;
-    position: relative;
-    margin-bottom: 20px;
+
+.banner h1{
+    
+    
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
 }
 
+.banner p{
+    margin-bottom: 25px;
+    font-size:18px;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+}
 .banner::before{
     content: "";
     position: absolute;
@@ -116,7 +149,15 @@ nav a{
 
 
 .filtros{
-    margin: 20px 0;
+    margin: 10px 0;
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin:10px 0;
+
 }
 
 .filtros .container{
@@ -177,8 +218,7 @@ nav a{
     background-color: white;
     padding: 10px;
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 220px;
     border-radius: 10px;
 }
 
@@ -254,7 +294,7 @@ nav a{
     gap: 20px;
     margin-top: auto;
     
-    border-top: 3px solid crimson;
+    border-top: 3px solid #F2360C;
 }
 
 .footer div{
@@ -279,15 +319,28 @@ nav a{
 }
 
 .overlay{
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-    z-index: 998;
-}
 
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 110vh;
+
+    background: rgba(0,0,0,0.5);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    z-index: 2000;
+
+}
 .overlay.active{
     opacity: 1;
     visibility: visible;
@@ -295,21 +348,38 @@ nav a{
 
 
 .carrito-panel{
+
+    
     position: fixed;
-    top: 70;
+
+    top: 0;
+
     right: -400px;
+
     width: 350px;
+
     max-width: 100%;
-    height: calc(100vh - 70px);
+
+    height: 110vh;
+
     background-color: white;
-    z-index: 999;
+
+    z-index: 2001;
+
     padding: 20px;
+
     box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+
     transition: 0.3s;
+
     display: flex;
+
     flex-direction: column;
-    gap: 20px;
+
+    gap: 10px;
+
     overflow-y: auto;
+
 }
 
 .carrito-panel.active{
@@ -1551,5 +1621,240 @@ nav a{
     cursor: pointer;
 
     font-weight: 600;
+
+}
+.topbar{
+
+    background:#F2360C;
+
+    color:white;
+
+    text-align:center;
+
+    padding:8px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+.beneficios .container{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+text-align:center;
+
+padding:40px 0;
+
+}
+
+.beneficios div{
+
+background:white;
+
+padding:20px;
+
+border-radius:12px;
+
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+
+}
+
+.banner{
+    
+    
+    
+height: 175px;
+display: flex;
+align-items: center;
+color: white;
+position: relative;
+
+
+
+background:
+
+linear-gradient(
+
+rgba(0,0,0,.6),
+
+rgba(0,0,0,.6)
+
+),
+
+url("imagenes/banner-zonalibre.png");
+
+background-size:cover;
+
+background-position:center;
+
+padding:120px 0;
+
+color:white;
+
+text-align:center;
+
+}
+.logo{
+    
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid #F2360C;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+
+    transition:.3s;
+
+}
+
+header.contacto .logo-container-contacto{
+    margin: left 60px;
+    display: flex;
+    align-items: center;
+}
+.logo:hover{
+
+    transform:scale(1.05) rotate(3deg);
+
+    box-shadow:0 6px 18px rgba(255,106,0,.4);
+
+}
+
+.logo-container-contacto{
+
+    margin-left: 80px;
+
+}
+
+/*boton dee explorar*/
+.btn-banner{
+
+    background:#F2360C;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 40px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+    box-shadow: 0 8px 20px rgba(255, 90, 0, .35);
+    cursor:pointer;
+
+}
+
+.btn-banner:hover{
+
+    background:#A60303;
+
+}
+.logo-container{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:flex-start;
+    margin-right: 100px;
+    
+
+}
+
+.logo{
+    justify-self: start;
+}
+.sucursales{
+
+    padding:40px 20px;
+
+}
+
+.sucursales h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.mapas-grid{
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+
+}
+.sucursales{
+
+    padding: 50px 20px;
+
+}
+
+.sucursales h2{
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    color: #F2360C;
+
+}
+
+.mapas-grid{
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+}
+
+.sucursal-card{
+
+    width: 450px;
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+
+}
+
+.sucursal-card h3{
+
+    margin-bottom: 15px;
+
+}
+
+@media(max-width:900px){
+
+    .mapas-grid{
+
+        grid-template-columns:1fr;
+
+    }
 
 }

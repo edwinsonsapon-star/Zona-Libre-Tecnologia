@@ -2,16 +2,36 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>AHURA Luxury Tech</title>
+    <title>ZONA LIBRE | Tecnología</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+    <div class="topbar">
+
+    🚚 Envíos nacionales |
+
+    💳 Pago seguro |
+
+    ⚡ Soporte técnico |
+
+    🛡 Garantía en productos
+
+</div>
+
+
 <header>
     <div class="container">
-        <div>
-            <img src="imagenes/Logo.jpeg" alt="Logo" width="50px" height="50px">
-        </div>
+
+        <a href="index.html" class="logo-container">
+
+    <img
+        src="imagenes/logo1.jpg"
+        alt="Zona Libre"
+        class="logo">
+
+</a>
+
         <nav>
             <a href="#" id="btn-inicio">Inicio</a>
             <a href="#" id="btn-ofertas">Ofertas</a>
@@ -49,8 +69,24 @@
 </header>
 
 <main class="main">
+    <section class="banner">
+        
 
-    <section class="search-bar">
+    <div class="container">
+
+        <h1>
+
+            ZONA LIBRE TECNOLOGÍA
+
+        </h1>
+
+        <p>
+
+            Laptops • Gaming • Accesorios • Audio • Video Vigilancia
+
+        </p>
+
+        <section class="search-bar">
         <div class="container">
             <input 
                 type="text" 
@@ -58,13 +94,24 @@
                 id="buscador"
             >
         </div>
-    </section>
+         </section>
 
-    <section class="banner">
-        <div class="container">
-            <h1>COLECCIÓN DE REGRESO A CLASES</h1>
-        </div>
-    </section>
+        <button
+            class="btn-banner"
+            onclick="document.getElementById('contenedor-productos').scrollIntoView({behavior:'smooth'})">
+
+            Explorar productos
+
+        </button>
+        
+        
+    </div>
+    
+
+   
+
+
+</section>
 
     <section class="filtros">
         <div class="container">
@@ -73,24 +120,6 @@
             <option value="todos">
 
                 Todas las categorías
-
-            </option>
-
-            <option value="Mochilas">
-
-                Mochilas
-
-            </option>
-
-            <option value="Carteras">
-
-                Carteras
-
-            </option>
-
-            <option value="Audifonos">
-
-                Audífonos
 
             </option>
 
@@ -121,33 +150,33 @@
 
             </option>
 
-</select>
-            <select id="filtro-tamano">
+
+    <select id="filtro-tamano">
 
     <option value="todos">
-        Todos los tamaños
+        
     </option>
 
     <option value="Pequeño">
-        Pequeño
+        
     </option>
 
     <option value="Mediano">
-        Mediano
+        
     </option>
 
     <option value="Grande">
-        Grande
+        
     </option>
 
-</select>
+
             
         </div>
     </section>
 
     <div class="overlay" id="overlay"></div>
 
-<section class="carrito-panel" id="carrito-panel">
+    <section class="carrito-panel" id="carrito-panel">
 
     <div class="carrito-header">
 
@@ -184,28 +213,35 @@
         </div>
     </section>
 
-    
-    <section class="pag">
-        <div class="container">
-            <span>1 2 3 4 ></span>
-        </div>
-    </section>
 
 </main>
 
 <footer class="footer">
     <div>
-        <h3>Mi Tienda</h3>
+        <h3>ZONA LIBRE</h3>
         <p>© 2026 Todos los derechos reservados</p>
     </div>
     <div>
-        <p>Contacto: correoelectronico@gmail.com</p>
-        <p>Tel: +502 1234-5678</p>
+        <p>
+            📍 4 Caminos San Cristóbal Totonicapán
+
+            📍 Calle Pahúla San Cristóbal Totonicapán
+
+            📞 4109-0823
+
+            📞 3121-8177
+
+            📞 5980-0790
+
+            📞 5841-2979
+        </p>
+        
     </div>
     <div>
-        <p>Instagram</p>
-        <p>Facebook</p>
-        <p>Tiktok</p>
+        <p>
+            Instagram • Facebook • TikTok
+
+        </p>
     </div>
 </footer>
 

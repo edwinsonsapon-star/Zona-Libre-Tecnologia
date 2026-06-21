@@ -104,6 +104,8 @@ if(ofertaActiva && precioOfertaInput === ""){
 
         nombre: document.getElementById("nombre").value,
 
+        categoria: document.getElementById("categoria").value.trim(),
+
         precio: Number(document.getElementById("precio").value),
 
         precioOferta: Number(document.getElementById("precio-oferta").value)
@@ -128,6 +130,8 @@ if(ofertaActiva && precioOfertaInput === ""){
     if(productoEditando !== null){
 
     productosGuardados[productoEditando] = {
+
+    ...productosGuardados[productoEditando],
 
     ...nuevoProducto,
 
@@ -192,6 +196,8 @@ function editarProducto(index){
 
 
     document.getElementById("nombre").value = producto.nombre;
+
+    document.getElementById("categoria").value = producto.categoria || "";
 
     document.getElementById("precio").value = producto.precio;
 
